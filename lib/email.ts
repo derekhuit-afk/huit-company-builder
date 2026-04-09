@@ -1,6 +1,7 @@
 import { Resend } from "resend";
-export const FROM_EMAIL = "derek@huit.ai";
+export const FROM_EMAIL = "Derek Huit <derek@huit.ai>";
 export const ADMIN_EMAIL = "derekhuit@gmail.com";
+export const REPLY_TO = "derek@huit.build";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const footer = `<hr style="border:none;border-top:1px solid #1E1E24;margin:24px 0">
@@ -24,7 +25,7 @@ const wrap = (body: string) => `
 export async function sendProposalEmail({ to, name, proposalId, companyName }: { to: string; name: string; proposalId: string; companyName: string }) {
   const url = `${process.env.NEXT_PUBLIC_BASE_URL || "https://build.huit.ai"}/proposal/${proposalId}`;
   await resend.emails.send({
-    from: FROM_EMAIL, to, cc: ADMIN_EMAIL,
+    from: FROM_EMAIL, to, cc: ADMIN_EMAIL, replyTo: REPLY_TO,
     subject: `Your ${companyName} build proposal is ready`,
     html: wrap(`
       <h2 style="color:white;font-family:Georgia,serif;font-size:22px;margin:0 0 12px">Hey ${name.split(" ")[0]} — your proposal is ready.</h2>
@@ -38,7 +39,7 @@ export async function sendProposalEmail({ to, name, proposalId, companyName }: {
 
 export async function sendNewLeadEmail({ name, email, companyName, productType, audience }: any) {
   await resend.emails.send({
-    from: FROM_EMAIL, to: ADMIN_EMAIL,
+    from: FROM_EMAIL, to: ADMIN_EMAIL, replyTo: REPLY_TO,
     subject: `🔔 New build inquiry: ${companyName}`,
     html: wrap(`
       <h2 style="color:#F5A623;font-family:Georgia,serif;font-size:20px;margin:0 0 16px">New Company Builder Inquiry</h2>
@@ -51,7 +52,7 @@ export async function sendNewLeadEmail({ name, email, companyName, productType, 
 
 export async function sendPhaseUpdateEmail({ to, name, companyName, phase, phaseName, nextPhase }: any) {
   await resend.emails.send({
-    from: FROM_EMAIL, to, cc: ADMIN_EMAIL,
+    from: FROM_EMAIL, to, cc: ADMIN_EMAIL, replyTo: REPLY_TO,
     subject: `✅ Phase ${phase} complete — ${companyName}`,
     html: wrap(`
       <h2 style="color:white;font-family:Georgia,serif;font-size:20px;margin:0 0 12px">Phase ${phase} is complete.</h2>
@@ -71,5 +72,5 @@ export async function sendNurtureEmail({ to, name, sequence }: { to: string; nam
   };
   const s = sequences[sequence];
   if (!s) return;
-  await resend.emails.send({ from: FROM_EMAIL, to, cc: ADMIN_EMAIL, subject: s.subject, html: wrap(s.body) });
+  await resend.emails.send({ from: FROM_EMAIL, to, cc: ADMIN_EMAIL, replyTo: REPLY_TO, subject: s.subject, html: wrap(s.body) });
 }
