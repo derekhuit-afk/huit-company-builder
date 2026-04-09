@@ -7,8 +7,6 @@ export default function AdminPage() {
   const [data,setData]=useState<any>(null);
   const [loading,setLoading]=useState(false);
   const [tab,setTab]=useState<"leads"|"proposals"|"clients">("leads");
-  const [building, setBuilding] = useState<string|null>(null);
-  const [buildLog, setBuildLog] = useState<string[]>([]);
 
   async function load() {
     setLoading(true);

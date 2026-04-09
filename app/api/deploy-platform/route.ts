@@ -73,7 +73,6 @@ export async function POST(req: NextRequest) {
 
     // ── Step 4: Set environment variables ─────────────────────────────────
     // Inherit from the CB project's env vars
-    const { data: existingEnvs } = await supabaseAdmin.rpc("query", {}).catch(() => ({ data: null }));
     await vc(`/v10/projects/${projectId}/env`, "POST", buildEnvVars(cbClient, config, prefix));
 
     // ── Step 5: Trigger deploy ─────────────────────────────────────────────
