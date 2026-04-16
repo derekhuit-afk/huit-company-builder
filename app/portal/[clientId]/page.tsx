@@ -11,10 +11,10 @@ export default function PortalPage() {
   const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
-    fetch(`/api/portal?token=${params?.clientId}`).then(r=>r.json())
+    fetch(`/api/portal?token=${(params?.[clientId] ?? "")}`).then(r=>r.json())
       .then(d => { if (d.error) setNotFound(true); else setData(d); })
       .catch(() => setNotFound(true));
-  }, [params?.clientId]);
+  }, [(params?.[clientId] ?? "")]);
 
   if (notFound) return <main style={{minHeight:"100vh",background:"var(--obsidian)",display:"flex",alignItems:"center",justifyContent:"center"}}><div style={{textAlign:"center"}}><div style={{fontSize:48,marginBottom:16}}>🏗️</div><h1 style={{color:"var(--text-primary)",fontFamily:"'Playfair Display',serif"}}>Portal not found</h1><p style={{color:"var(--text-secondary)",fontSize:14}}>Check your link or contact Derek.</p></div></main>;
   if (!data) return <main style={{minHeight:"100vh",background:"var(--obsidian)",display:"flex",alignItems:"center",justifyContent:"center"}}><div style={{color:"var(--honey)"}}>Loading your build portal...</div></main>;
