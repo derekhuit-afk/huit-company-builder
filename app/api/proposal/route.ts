@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
 
 export async function GET(req: NextRequest) {
-  const id = req.nextUrl.searchParams.get("id");
+  const id = req.nextUrl.searchParams?.get("id");
   if (!id) return NextResponse.json({ error: "Missing id" }, { status: 400 });
   const { data } = await supabaseAdmin.from("cb_proposals").select("*, cb_leads(name, email, phone)").eq("id", id).maybeSingle();
   if (!data) return NextResponse.json({ error: "Proposal not found" }, { status: 404 });
