@@ -13,8 +13,8 @@ export default function ProposalPage() {
   const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
-    fetch(`/api/proposal?id=${params.id}`).then(r=>r.json()).then(d=>{ if(d.error) setNotFound(true); else setProposal(d); }).catch(()=>setNotFound(true));
-  }, [params.id]);
+    fetch(`/api/proposal?id=${params?.id}`).then(r=>r.json()).then(d=>{ if(d.error) setNotFound(true); else setProposal(d); }).catch(()=>setNotFound(true));
+  }, [params?.id]);
 
   if (notFound) return <main style={{minHeight:"100vh",background:"var(--obsidian)",display:"flex",alignItems:"center",justifyContent:"center"}}><div style={{textAlign:"center",color:"white"}}><div style={{fontSize:48,marginBottom:16}}>📄</div><h1 style={{fontFamily:"'Playfair Display',serif",color:"var(--text-primary)"}}>Proposal not found</h1><a href="/build" style={{color:"var(--honey)",textDecoration:"none"}}>Generate a new proposal →</a></div></main>;
   if (!proposal) return <main style={{minHeight:"100vh",background:"var(--obsidian)",display:"flex",alignItems:"center",justifyContent:"center"}}><div style={{color:"var(--honey)",fontSize:16}}>Building your proposal...</div></main>;
