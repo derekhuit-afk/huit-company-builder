@@ -25,14 +25,14 @@ export default function PortalPage() {
   const daysLeft = client.target_launch ? Math.max(0, Math.ceil((new Date(client.target_launch).getTime() - Date.now()) / (1000 * 60 * 60 * 24))) : null;
 
   return (
-    <main style={{minHeight:"100vh",background:"var(--obsidian)",padding:"48px 24px"}}>
+    <main className="cb-main" style={{minHeight:"100vh",background:"var(--obsidian)",padding:"48px 24px"}}>
       <div style={{maxWidth:680,margin:"0 auto"}}>
         {/* Header */}
         <div style={{background:"var(--charcoal)",border:"1px solid rgba(245,166,35,0.3)",borderRadius:18,padding:"28px 32px",marginBottom:20}}>
           <div style={{fontSize:11,color:"var(--honey)",fontWeight:700,letterSpacing:"0.2em",textTransform:"uppercase",marginBottom:8}}>⬡ Huit.AI Company Builder</div>
           <h1 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(22px,4vw,32px)",fontWeight:900,color:"var(--text-primary)",marginBottom:6}}>{client.company_name}</h1>
           <p style={{fontSize:14,color:"var(--text-secondary)",marginBottom:20}}>Build Portal · {client.name}</p>
-          <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:16}}>
+          <div className="cb-portal-stats" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:16}}>
             {[
               [String(completedCount)+"/13","Phases Complete"],
               [pct+"%","Build Progress"],

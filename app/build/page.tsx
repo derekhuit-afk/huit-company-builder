@@ -30,7 +30,7 @@ export default function BuildPage() {
   }
 
   const field = (label: string, key: string, opts: any = {}) => (
-    <div style={{marginBottom:18}}>
+    <div className="cb-input" style={{marginBottom:18}}>
       <label style={{fontSize:11,fontWeight:700,color:"var(--text-secondary)",textTransform:"uppercase",letterSpacing:"0.08em",marginBottom:6,display:"block"}}>{label}{opts.required?" *":""}</label>
       {opts.textarea ? (
         <textarea rows={3} placeholder={opts.ph||""} value={(form as any)[key]} onChange={e=>up(key,e.target.value)} style={{width:"100%",background:"var(--slate)",border:"1px solid var(--border)",borderRadius:8,padding:"11px 14px",color:"var(--text-primary)",fontSize:14,outline:"none",resize:"vertical",fontFamily:"Arial,sans-serif",boxSizing:"border-box"}} />
@@ -53,7 +53,7 @@ export default function BuildPage() {
   ];
 
   return (
-    <main style={{minHeight:"100vh",background:"var(--obsidian)",padding:"60px 24px"}}>
+    <main className="cb-main" style={{minHeight:"100vh",background:"var(--obsidian)",padding:"60px 24px"}}>
       <div style={{maxWidth:600,margin:"0 auto"}}>
         <a href="/" style={{display:"inline-flex",alignItems:"center",gap:6,color:"var(--text-muted)",fontSize:13,textDecoration:"none",marginBottom:32}}>← Huit.AI Company Builder</a>
         <div style={{textAlign:"center",marginBottom:40}}>
@@ -72,7 +72,7 @@ export default function BuildPage() {
           ))}
         </div>
 
-        <div style={{background:"var(--charcoal)",border:"1px solid var(--border)",borderRadius:20,padding:32}}>
+        <div className="cb-card" style={{background:"var(--charcoal)",border:"1px solid var(--border)",borderRadius:20,padding:32}}>
           <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:20,fontWeight:900,color:"var(--text-primary)",marginBottom:4}}>{steps[step-1].title}</h2>
           <p style={{fontSize:13,color:"var(--text-secondary)",marginBottom:24}}>{steps[step-1].subtitle}</p>
 
@@ -98,11 +98,11 @@ export default function BuildPage() {
 
           {error&&<div style={{background:"rgba(239,68,68,0.1)",border:"1px solid rgba(239,68,68,0.3)",borderRadius:8,padding:"10px 14px",color:"#EF4444",fontSize:13,marginBottom:16}}>{error}</div>}
 
-          <div style={{display:"flex",gap:10,justifyContent:"space-between"}}>
-            {step>1&&<button onClick={()=>setStep(s=>s-1)} style={{background:"none",border:"1px solid var(--border)",color:"var(--text-muted)",borderRadius:10,padding:"12px 20px",fontSize:14,cursor:"pointer"}}>← Back</button>}
+          <div className="cb-btnrow" style={{display:"flex",gap:10,justifyContent:"space-between"}}>
+            {step>1&&<button className="cb-btn" onClick={()=>setStep(s=>s-1)} style={{background:"none",border:"1px solid var(--border)",color:"var(--text-muted)",borderRadius:10,padding:"12px 20px",fontSize:14,cursor:"pointer"}}>← Back</button>}
             {step<3
-              ? <button onClick={()=>setStep(s=>s+1)} disabled={step===1&&(!form.companyName||!form.productType||!form.targetAudience)||step===2&&!form.primaryCta} style={{marginLeft:"auto",background:"linear-gradient(135deg,#F5A623,#D4881A)",color:"#0A0A0B",border:"none",borderRadius:10,padding:"12px 28px",fontSize:14,fontWeight:700,cursor:"pointer"}}>Continue →</button>
-              : <button onClick={submit} disabled={loading||!form.name||!form.email||!form.authoritySignal} style={{marginLeft:"auto",background:loading?"var(--muted)":"linear-gradient(135deg,#F5A623,#D4881A)",color:loading?"var(--text-muted)":"#0A0A0B",border:"none",borderRadius:10,padding:"12px 32px",fontSize:15,fontWeight:700,cursor:loading?"not-allowed":"pointer"}}>{loading?"Generating your proposal...":"Generate My Proposal →"}</button>
+              ? <button className="cb-btn" onClick={()=>setStep(s=>s+1)} disabled={step===1&&(!form.companyName||!form.productType||!form.targetAudience)||step===2&&!form.primaryCta} style={{marginLeft:"auto",background:"linear-gradient(135deg,#F5A623,#D4881A)",color:"#0A0A0B",border:"none",borderRadius:10,padding:"12px 28px",fontSize:14,fontWeight:700,cursor:"pointer"}}>Continue →</button>
+              : <button className="cb-btn" onClick={submit} disabled={loading||!form.name||!form.email||!form.authoritySignal} style={{marginLeft:"auto",background:loading?"var(--muted)":"linear-gradient(135deg,#F5A623,#D4881A)",color:loading?"var(--text-muted)":"#0A0A0B",border:"none",borderRadius:10,padding:"12px 32px",fontSize:15,fontWeight:700,cursor:loading?"not-allowed":"pointer"}}>{loading?"Generating your proposal...":"Generate My Proposal →"}</button>
             }
           </div>
         </div>

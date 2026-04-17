@@ -116,6 +116,36 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }
           *{box-sizing:border-box} a{color:inherit} button{font-family:Arial,sans-serif}
           @media(max-width:768px){.hide-mobile{display:none!important}}
+
+          /* ===== MOBILE RESPONSIVE SYSTEM ===== */
+          /* Prevent iOS auto-zoom on input focus (requires 16px+) */
+          .cb-input, .cb-input input, .cb-input textarea, .cb-input select {
+            font-size: 16px !important;
+          }
+          /* Tap-friendly targets: 44px minimum height per Apple HIG */
+          .cb-btn { min-height: 44px; }
+
+          @media (max-width: 768px) {
+            .cb-main { padding: 24px 16px !important; }
+            .cb-card { padding: 20px !important; }
+            .cb-card-lg { padding: 22px 20px !important; }
+            .cb-stats-4 { grid-template-columns: repeat(2,1fr) !important; }
+            .cb-stats-3 { grid-template-columns: repeat(3,1fr) !important; gap: 8px !important; }
+            .cb-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -4px; }
+            .cb-table-wrap table { min-width: 620px; }
+            .cb-btnrow { flex-direction: column-reverse !important; gap: 10px !important; }
+            .cb-btnrow > * { width: 100% !important; margin-left: 0 !important; text-align: center; }
+            .cb-chat-pad { padding: 16px 16px 0 !important; }
+            .cb-chat-input-wrap { padding: 12px 16px 16px !important; }
+            .cb-chat-header { padding: 14px 16px !important; }
+            .cb-portal-stats { grid-template-columns: repeat(3,1fr) !important; gap: 8px !important; }
+            .cb-admin-toolbar { flex-wrap: wrap !important; gap: 8px !important; }
+          }
+          @media (max-width: 420px) {
+            .cb-main { padding: 20px 12px !important; }
+            .cb-stats-4 { grid-template-columns: 1fr 1fr !important; }
+            .cb-portal-stats { grid-template-columns: 1fr !important; }
+          }
         `}</style>
         {children}
       </body>

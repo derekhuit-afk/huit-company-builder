@@ -23,7 +23,7 @@ export default function ProposalPage() {
   const lead = proposal.cb_leads;
 
   return (
-    <main style={{minHeight:"100vh",background:"var(--obsidian)",padding:"60px 24px"}}>
+    <main className="cb-main" style={{minHeight:"100vh",background:"var(--obsidian)",padding:"60px 24px"}}>
       <div style={{maxWidth:820,margin:"0 auto"}}>
         {/* New proposal banner */}
         {isNew&&<div style={{background:"rgba(16,185,129,0.1)",border:"1px solid rgba(16,185,129,0.3)",borderRadius:12,padding:"14px 20px",marginBottom:28,display:"flex",alignItems:"center",gap:10}}>

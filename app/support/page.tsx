@@ -28,7 +28,7 @@ export default function SupportPage() {
   return (
     <main style={{minHeight:"100vh",background:"var(--obsidian)",display:"flex",flexDirection:"column"}}>
       {/* Nav */}
-      <div style={{background:"var(--charcoal)",borderBottom:"1px solid var(--border)",padding:"0 24px",height:56,display:"flex",alignItems:"center",justifyContent:"space-between",flexShrink:0}}>
+      <div className="cb-chat-header" style={{background:"var(--charcoal)",borderBottom:"1px solid var(--border)",padding:"0 24px",height:56,display:"flex",alignItems:"center",justifyContent:"space-between",flexShrink:0}}>
         <div style={{display:"flex",alignItems:"center",gap:10}}>
           <div style={{width:28,height:28,background:"linear-gradient(135deg,#F5A623,#D4881A)",borderRadius:6,display:"flex",alignItems:"center",justifyContent:"center",fontSize:14,fontWeight:900,color:"#0A0A0B"}}>⬡</div>
           <div style={{fontSize:13,fontWeight:700,color:"var(--text-primary)"}}>Company Builder AI</div>
@@ -39,7 +39,7 @@ export default function SupportPage() {
       </div>
 
       {/* Messages */}
-      <div style={{flex:1,overflowY:"auto",padding:"24px 24px 0"}}>
+      <div className="cb-chat-pad" style={{flex:1,overflowY:"auto",padding:"24px 24px 0"}}>
         <div style={{maxWidth:700,margin:"0 auto",display:"flex",flexDirection:"column",gap:14}}>
           {msgs.map((m,i)=>(
             <div key={i} style={{display:"flex",justifyContent:m.role==="user"?"flex-end":"flex-start"}}>
@@ -63,10 +63,10 @@ export default function SupportPage() {
       </div>}
 
       {/* Input */}
-      <div style={{padding:"16px 24px 24px",flexShrink:0}}>
-        <div style={{maxWidth:700,margin:"0 auto",display:"flex",gap:10}}>
-          <input value={input} onChange={e=>setInput(e.target.value)} onKeyDown={e=>e.key==="Enter"&&!e.shiftKey&&send()} placeholder="Ask anything about the build..." style={{flex:1,background:"var(--charcoal)",border:"1px solid var(--border)",borderRadius:12,padding:"13px 16px",color:"var(--text-primary)",fontSize:14,outline:"none"}} />
-          <button onClick={()=>send()} disabled={loading||!input.trim()} style={{background:"linear-gradient(135deg,#F5A623,#D4881A)",color:"#0A0A0B",border:"none",borderRadius:12,padding:"13px 20px",fontSize:14,fontWeight:700,cursor:"pointer",whiteSpace:"nowrap"}}>Send →</button>
+      <div className="cb-chat-input-wrap" style={{padding:"16px 24px 24px",flexShrink:0}}>
+        <div className="cb-input" style={{maxWidth:700,margin:"0 auto",display:"flex",gap:10}}>
+          <input value={input} onChange={e=>setInput(e.target.value)} onKeyDown={e=>e.key==="Enter"&&!e.shiftKey&&send()} placeholder="Ask anything about the build..." style={{flex:1,background:"var(--charcoal)",border:"1px solid var(--border)",borderRadius:12,padding:"13px 16px",color:"var(--text-primary)",fontSize:14,outline:"none",minWidth:0}} />
+          <button className="cb-btn" onClick={()=>send()} disabled={loading||!input.trim()} style={{background:"linear-gradient(135deg,#F5A623,#D4881A)",color:"#0A0A0B",border:"none",borderRadius:12,padding:"13px 20px",fontSize:14,fontWeight:700,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>Send →</button>
         </div>
         <p style={{fontSize:11,color:"var(--text-muted)",textAlign:"center",marginTop:10}}>Or <a href="/build" style={{color:"var(--honey)",textDecoration:"none"}}>get your instant proposal →</a></p>
       </div>

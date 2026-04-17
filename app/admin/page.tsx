@@ -57,21 +57,21 @@ export default function AdminPage() {
       <div style={{maxWidth:380,width:"100%",background:"var(--charcoal)",border:"1px solid var(--border)",borderRadius:20,padding:32}}>
         <div style={{fontSize:36,textAlign:"center",marginBottom:14}}>⬡</div>
         <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:20,fontWeight:900,color:"var(--text-primary)",marginBottom:20,textAlign:"center"}}>CB Admin</h2>
-        <input type="password" placeholder="Admin secret" value={secret} onChange={e=>setSecret(e.target.value)} onKeyDown={e=>e.key==="Enter"&&load()} style={{width:"100%",background:"var(--slate)",border:"1px solid var(--border)",borderRadius:8,padding:"12px 14px",color:"var(--text-primary)",fontSize:14,outline:"none",marginBottom:14,boxSizing:"border-box"}} />
+        <input className="cb-input" type="password" placeholder="Admin secret" value={secret} onChange={e=>setSecret(e.target.value)} onKeyDown={e=>e.key==="Enter"&&load()} style={{width:"100%",background:"var(--slate)",border:"1px solid var(--border)",borderRadius:8,padding:"12px 14px",color:"var(--text-primary)",fontSize:14,outline:"none",marginBottom:14,boxSizing:"border-box"}} />
         <button onClick={load} disabled={loading} style={{width:"100%",background:"linear-gradient(135deg,#F5A623,#D4881A)",color:"#0A0A0B",border:"none",borderRadius:10,padding:"13px",fontSize:14,fontWeight:700,cursor:"pointer"}}>{loading?"Loading...":"Enter →"}</button>
       </div>
     </main>
   );
 
   return (
-    <main style={{minHeight:"100vh",background:"var(--obsidian)",padding:"32px 24px"}}>
+    <main className="cb-main" style={{minHeight:"100vh",background:"var(--obsidian)",padding:"32px 24px"}}>
       <div style={{maxWidth:1100,margin:"0 auto"}}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:24,flexWrap:"wrap",gap:12}}>
           <h1 style={{fontFamily:"'Playfair Display',serif",fontSize:24,fontWeight:900,color:"var(--text-primary)"}}>⬡ Company Builder Admin</h1>
           <button onClick={load} style={{background:"var(--slate)",border:"1px solid var(--border)",color:"var(--text-muted)",borderRadius:8,padding:"8px 16px",fontSize:13,cursor:"pointer"}}>Refresh</button>
         </div>
         {/* Stats */}
-        <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:12,marginBottom:24}}>
+        <div className="cb-stats-4" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:12,marginBottom:24}}>
           {[["Total Leads",data?.stats?.totalLeads||0],["Proposals Sent",data?.stats?.proposalsSent||0],["Proposals Viewed",data?.stats?.proposalsViewed||0],["Active Clients",data?.stats?.activeClients||0]].map(([l,v])=>(
             <div key={String(l)} style={{background:"var(--charcoal)",border:"1px solid var(--border)",borderRadius:12,padding:"14px 16px",textAlign:"center"}}>
               <div style={{fontFamily:"'Playfair Display',serif",fontSize:26,fontWeight:900,color:"var(--honey)"}}>{v}</div>
@@ -86,7 +86,7 @@ export default function AdminPage() {
           ))}
         </div>
         {/* Leads table */}
-        {tab==="leads"&&<div style={{background:"var(--charcoal)",border:"1px solid var(--border)",borderRadius:14,overflow:"hidden"}}>
+        {tab==="leads"&&<div className="cb-table-wrap" style={{background:"var(--charcoal)",border:"1px solid var(--border)",borderRadius:14,overflow:"hidden"}}>
           <table style={{width:"100%",borderCollapse:"collapse"}}>
             <thead><tr style={{borderBottom:"1px solid var(--border)"}}>{["Name","Company","Product","Status","Date","Actions"].map(h=><th key={h} style={{padding:"10px 14px",textAlign:"left",fontSize:11,fontWeight:700,color:"var(--text-muted)",textTransform:"uppercase"}}>{h}</th>)}</tr></thead>
             <tbody>{(data?.leads||[]).map((l:any,i:number)=>(
@@ -157,7 +157,7 @@ export default function AdminPage() {
           );})}
         </div>}
         {/* Proposals */}
-        {tab==="proposals"&&<div style={{background:"var(--charcoal)",border:"1px solid var(--border)",borderRadius:14,overflow:"hidden"}}>
+        {tab==="proposals"&&<div className="cb-table-wrap" style={{background:"var(--charcoal)",border:"1px solid var(--border)",borderRadius:14,overflow:"hidden"}}>
           <table style={{width:"100%",borderCollapse:"collapse"}}>
             <thead><tr style={{borderBottom:"1px solid var(--border)"}}>{["Company","Status","Sent","Viewed","Booked","Link"].map(h=><th key={h} style={{padding:"10px 14px",textAlign:"left",fontSize:11,fontWeight:700,color:"var(--text-muted)",textTransform:"uppercase"}}>{h}</th>)}</tr></thead>
             <tbody>{(data?.proposals||[]).map((p:any,i:number)=>(
