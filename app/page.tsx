@@ -145,7 +145,7 @@ export default function Home() {
                 <div style={{fontFamily:"'Playfair Display',serif",fontWeight:700,fontSize:14,color:"var(--text-primary)"}}>Huit.AI Company Builder</div>
               </div>
               <p style={{fontSize:12,color:"var(--text-muted)",lineHeight:1.7,maxWidth:300,marginBottom:12}}>A full SaaS company architecture built on the proven Hive Mortgage Academy blueprint. Replace the concept. Keep the machine.</p>
-              <p style={{fontSize:11,color:"#374151",lineHeight:1.6}}>Derek Huit · Founder & CEO, Huit.AI, Inc. · NMLS #1739818 · derekhuit@gmail.com</p>
+              <p style={{fontSize:11,color:"#374151",lineHeight:1.6}}>Derek Huit · Founder & CEO, Huit.AI, Inc. · NMLS #203980 · derekhuit@gmail.com</p>
             </div>
             <div>
               <div style={{fontSize:10,fontWeight:700,color:"var(--honey)",letterSpacing:"0.15em",textTransform:"uppercase",marginBottom:14}}>Product</div>
