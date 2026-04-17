@@ -6,7 +6,7 @@ export async function GET(req: NextRequest) {
   if (!token) return NextResponse.json({ error: "Missing token" }, { status: 400 });
 
   const { data: client, error } = await supabaseAdmin
-    .from("clients").select("*").eq("portal_token", token).single();
+    .from("cb_clients").select("*").eq("portal_token", token).single();
   if (error || !client) return NextResponse.json({ error: "Portal not found" }, { status: 404 });
   return NextResponse.json({ client });
 }

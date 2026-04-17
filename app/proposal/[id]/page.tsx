@@ -8,7 +8,7 @@ const PHASE_COLORS=["#10B981","#10B981","#10B981","#3B82F6","#3B82F6","#8B5CF6",
 export default function ProposalPage() {
   const params = useParams();
   const searchParams = useSearchParams();
-  const isNew = (searchParams?.get ?? "")("new") === "1";
+  const isNew = searchParams?.get("new") === "1";
   const [proposal, setProposal] = useState<any>(null);
   const [notFound, setNotFound] = useState(false);
 

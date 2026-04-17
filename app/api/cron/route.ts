@@ -54,7 +54,7 @@ export async function GET(req: NextRequest) {
             <p style="color:#F1F5F9;font-size:16px;font-weight:700;margin:0 0 12px">${c.company_name} — how's it going?</p>
             <p style="color:#CBD5E1;font-size:14px;line-height:1.7;margin:0 0 16px">Hey ${c.name.split(" ")[0]} — ${daysSinceStart} days in. I want to make sure the platform is performing the way it should and you have everything you need.</p>
             <p style="color:#CBD5E1;font-size:14px;line-height:1.7;margin:0 0 20px">Reply here with any questions, things you want to add, or if you're already thinking about your next company.</p>
-            <a href="${process.env.NEXT_PUBLIC_BASE_URL || "https://build.huit.ai"}/portal/${c.portal_token}" style="display:inline-block;background:linear-gradient(135deg,#F5A623,#D4881A);color:#0A0A0B;padding:12px 24px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none">View Build Portal →</a>
+            <a href="${process.env.NEXT_PUBLIC_BASE_URL || "https://huit.build"}/portal/${c.portal_token}" style="display:inline-block;background:linear-gradient(135deg,#F5A623,#D4881A);color:#0A0A0B;padding:12px 24px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none">View Build Portal →</a>
           </div>`
         });
         results.checkins++;

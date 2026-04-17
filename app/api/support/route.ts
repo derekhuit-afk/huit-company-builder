@@ -26,7 +26,7 @@ Derek Huit built this. 18 years, $1B+ in production, Built from Alaska. The firs
 
 Be direct, specific, and confident. If someone asks what they'd get for their specific concept, make it concrete. Never be vague.
 
-If someone is ready to get a proposal, direct them to https://build.huit.ai/build.`;
+If someone is ready to get a proposal, direct them to https://huit.build/build.`;
 
 export async function POST(req: NextRequest) {
   try {
