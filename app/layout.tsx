@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Huit.AI Company Builder — Build Your Platform in 45 Hours",
   description:
-    "From concept to live SaaS platform in 13 phases. Built from Alaska by Derek Huit — 18 years, $800M+ in production.",
+    "From concept to live SaaS platform in 13 phases. Built from Alaska by Derek Huit — 18 years, hundreds of millions in production.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     siteName: "Huit.AI",
     title: "Huit.AI Company Builder — Build Your Platform in 45 Hours",
     description:
-      "From concept to live SaaS platform in 13 phases. Built from Alaska by Derek Huit — 18 years, $800M+ in production.",
+      "From concept to live SaaS platform in 13 phases. Built from Alaska by Derek Huit — 18 years, hundreds of millions in production.",
     images: [
       {
         url: "/og-image.png",

@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
     if (leadErr) throw new Error(leadErr.message);
 
     // Generate proposal with Claude
-    const prompt = `You are Derek Huit — founder of Huit.AI, 18+ years in mortgage, $800M+ in production, Built from Alaska. You've been building full-stack SaaS platforms using your proven Company Builder blueprint.
+    const prompt = `You are Derek Huit — founder of Huit.AI, 18+ years in mortgage, hundreds of millions in production, Built from Alaska. You've been building full-stack SaaS platforms using your proven Company Builder blueprint.
 
 A prospect has submitted a build inquiry. Generate a comprehensive, professional build proposal for their company.
 

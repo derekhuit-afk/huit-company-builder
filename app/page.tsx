@@ -50,7 +50,7 @@ export default function Home() {
       {/* Stats */}
       <section style={{background:"var(--charcoal)",borderTop:"1px solid var(--border)",borderBottom:"1px solid var(--border)",padding:"32px 24px"}}>
         <div style={{maxWidth:1000,margin:"0 auto",display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:24,textAlign:"center"}}>
-          {[["$800M+*","Career Production"],["18+","Years in Mortgage"],["13","Build Phases"],["45 hrs","Solo Build Time"],["$180K+","Replacement Cost"]].map(([n,l],i)=>(
+          {[["Hundreds of Millions","Career Production"],["18+","Years in Mortgage"],["13","Build Phases"],["45 hrs","Solo Build Time"],["$180K+","Replacement Cost"]].map(([n,l],i)=>(
             <div key={i}><div style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(22px,3vw,36px)",fontWeight:900,background:"linear-gradient(135deg,#F5A623,#FFC85C)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>{n}</div><div style={{fontSize:12,color:"var(--text-muted)",marginTop:4}}>{l}</div></div>
           ))}
         </div>
