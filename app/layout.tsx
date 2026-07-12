@@ -9,6 +9,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  verification: { google: "-RqTiM9DiuuUk60yjFrKoiIdQFMu1XMPqta9Ip64sH0" },
   metadataBase: new URL(SITE_URL),
   title: "Huit.AI Company Builder — Build Your Platform in 45 Hours",
   description:
